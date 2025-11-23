@@ -22,6 +22,7 @@ public class ServicioTarifa {
         this.repo = repo;
     }
 
+
     public void crearTarifa(String tipo, double valorHora, double valorDia) throws DatosInvalidosException, TarifaNoDefinidaException {
         if (tipo == null || tipo.trim().isEmpty()) {
             throw new DatosInvalidosException("El tipo de tarifa no puede estar vacio");

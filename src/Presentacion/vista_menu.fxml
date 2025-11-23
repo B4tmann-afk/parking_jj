@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Presentacion.MenuController">
+
+    <top>
+        <Label text="Parking JJ - Menú Principal"
+               style="-fx-font-size: 26px; -fx-padding: 20px;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding: 40px;">
+
+            <Button fx:id="btnIngreso"
+                    text="Registrar Ingreso Vehículo"
+                    prefWidth="260"
+                    onAction="#registrarIngreso"/>
+
+            <Button fx:id="btnSalida"
+                    text="Registrar Salida Vehículo"
+                    prefWidth="260"
+                    onAction="#registrarSalida"/>
+
+            <Button fx:id="btnTarifas"
+                    text="Consultar Tarifas"
+                    prefWidth="260"
+                    onAction="#consultarTarifas"/>
+
+            <Button fx:id="btnVehiculos"
+                    text="Gestión de Vehículos"
+                    prefWidth="260"
+                    onAction="#gestionVehiculos"/>
+
+            <Button fx:id="btnClientes"
+                    text="Gestión de Clientes"
+                    prefWidth="260"
+                    onAction="#gestionClientes"/>
+
+            <Button fx:id="btnTrabajadores"
+                    text="Gestión de Trabajadores"
+                    prefWidth="260"
+                    onAction="#gestionTrabajadores"/>
+
+            <Button fx:id="btnSalir"
+                    text="Salir"
+                    prefWidth="260"
+                    onAction="#salir"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>

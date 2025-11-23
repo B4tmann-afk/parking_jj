@@ -1,36 +1,53 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelos;
-
 
 import Modelos.ParqueoException.DatosInvalidosException;
 
-public class Usuario extends Persona {
+public class Usuario {
+
+    private String id;
+    private String nombre;
+    private String cedula;
+    private String telefono;
     private String usuario;
     private String contraseña;
+    private Rol rol;
 
-    public Usuario(String id, String nombre, String cedula, String telefono, String usuario, String contraseña) throws DatosInvalidosException {
-        super(id, nombre, cedula, telefono);
-        Validador.validarUsuario(usuario);
-        Validador.validarContraseña(contraseña);
-        
-        this.usuario = usuario.trim();
+    public Usuario(String id, String nombre, String cedula, String telefono,
+            String usuario, String contraseña, Rol rol) throws DatosInvalidosException {
+
+        if (usuario == null || usuario.trim().isEmpty()) {
+            throw new DatosInvalidosException("Usuario no puede estar vacío");
+        }
+        if (contraseña == null || contraseña.isEmpty()) {
+            throw new DatosInvalidosException("Contraseña no válida");
+        }
+
+        this.id = id;
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.telefono = telefono;
+        this.usuario = usuario;
         this.contraseña = contraseña;
+        this.rol = rol;
+    }
+
+    public boolean validarCredenciales(String user, String pass) {
+        return usuario.equals(user) && contraseña.equals(pass);
+    }
+
+    public Rol getRol() {
+        return rol;
     }
 
     public String getUsuario() {
         return usuario;
     }
 
-    public boolean validarCredenciales(String usuario, String contraseña) {
-        if (usuario == null || contraseña == null) return false;
-        return this.usuario.equalsIgnoreCase(usuario.trim()) && this.contraseña.equals(contraseña);
+    public String getNombre() {
+        return nombre;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{nombre='" + getNombre() + "', usuario='" + usuario + "'}";
+    public String getId() {
+        return id;
     }
 }
