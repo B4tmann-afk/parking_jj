@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Presentacion.TrabajadoresController">
+
+    <top>
+        <Label text="Gestión de Trabajadores"
+               style="-fx-font-size: 22px; -fx-padding: 15px;"/>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaTrabajadores">
+            <columns>
+                <TableColumn text="Usuario" fx:id="colUsuario" prefWidth="150"/>
+                <TableColumn text="Nombre" fx:id="colNombre" prefWidth="200"/>
+                <TableColumn text="Rol" fx:id="colRol" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 15px;">
+            <Button text="Agregar" onAction="#agregarTrabajador"/>
+            <Button text="Eliminar" onAction="#eliminarTrabajador"/>
+            <Button text="Actualizar" onAction="#actualizarTabla"/>
+        </HBox>
+    </bottom>
+</BorderPane>
+

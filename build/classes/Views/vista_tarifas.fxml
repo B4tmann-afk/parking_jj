@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Presentacion.TarifasController">
+
+    <top>
+        <Label text="Gestión de Tarifas"
+               style="-fx-font-size: 22px; -fx-padding: 15px;"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
+            <TextField fx:id="txtTarifaCarro" promptText="Tarifa Carro"/>
+            <TextField fx:id="txtTarifaMoto" promptText="Tarifa Moto"/>
+
+            <Button text="Actualizar Tarifas"
+                    onAction="#actualizarTarifas"/>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,5 +1,6 @@
-package Presentacion;
+package Controller;
 
+import Modelos.ClienteRow;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;

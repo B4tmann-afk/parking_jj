@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Presentacion.SalidaController">
+
+    <top>
+        <Label text="Registrar Salida de Vehículo"
+               style="-fx-font-size: 22px; -fx-padding: 15px;"/>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20px;">
+            <TextField fx:id="txtPlacaSalida" promptText="Placa del Vehículo"/>
+            <Button text="Procesar Salida" onAction="#registrarSalida"/>
+        </VBox>
+    </center>
+
+</BorderPane>

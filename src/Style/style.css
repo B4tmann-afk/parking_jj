@@ -1,0 +1,73 @@
+/* ================================
+        ESTILOS GENERALES
+=================================== */
+
+body {
+    margin: 0;
+    background: #0d1117;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor-parking {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Estilo general de los botones */
+.btn {
+    position: absolute;   /* Para mover por coordenadas */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+/* Hover estilizado */
+.btn:hover {
+    transform: scale(1.08);
+    filter: brightness(1.2);
+}
+
+/* ======================================
+        COLORES DE LOS BOTONES
+========================================= */
+
+/* Puedes cambiar colores aquí */
+
+#btn-entrada  { background: #2ecc71; }  /* verde */
+#btn-salida   { background: #e74c3c; }  /* rojo */
+#btn-pagar    { background: #f1c40f; color: #333;}  /* amarillo */
+#btn-config   { background: #3498db; }  /* azul */
+
+
+/* ======================================
+        COORDENADAS DE LOS BOTONES
+========================================= */
+
+/* Edita los valores top / left para moverlos */
+
+#btn-entrada {
+    top: 80px;
+    left: 60px;
+}
+
+#btn-salida {
+    top: 80px;
+    left: 250px;
+}
+
+#btn-pagar {
+    top: 200px;
+    left: 60px;
+}
+
+#btn-config {
+    top: 200px;
+    left: 250px;
+}
+

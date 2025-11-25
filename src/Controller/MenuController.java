@@ -1,4 +1,4 @@
-package Presentacion;
+package Controller;
 
 import Modelos.Usuario;
 import Modelos.Rol;
@@ -59,7 +59,7 @@ public class MenuController {
         }
     }
 
-    // 🚨 MÉTODOS QUE EXIGE EL FXML
+
   @FXML
 private void registrarIngreso() { abrirVentana("vista_ingreso.fxml", "Registrar Ingreso"); }
 
