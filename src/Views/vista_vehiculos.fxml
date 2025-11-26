@@ -1,48 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Presentacion.VehiculosController">
-
+            fx:controller="Controller.VehiculosController"
+            prefWidth="800" prefHeight="600">
+    
+    <!-- ENCABEZADO -->
     <top>
-        <Label text="Gestión de Vehículos"
-               style="-fx-font-size: 22px; -fx-padding: 15px;"/>
+        <VBox style="-fx-background-color: #2c3e50; -fx-padding: 20px;">
+            <Label text="🚗 Gestión de Vehículos" textFill="white">
+                <font>
+                    <Font name="System Bold" size="24"/>
+                </font>
+            </Label>
+            <Label text="Registre y administre los vehículos del parqueadero" 
+                   textFill="#ecf0f1" style="-fx-font-size: 14px;">
+                <VBox.margin>
+                    <Insets top="5"/>
+                </VBox.margin>
+            </Label>
+        </VBox>
     </top>
-
+    
+    <!-- CONTENIDO PRINCIPAL -->
     <center>
-        <VBox spacing="10" style="-fx-padding: 15px;">
-
-            <!-- Campos -->
-            <HBox spacing="10">
-                <TextField fx:id="txtPlaca" promptText="Placa"/>
-                <TextField fx:id="txtTipo" promptText="Tipo (Carro/Moto)"/>
-            </HBox>
-
-            <!-- Botones -->
-            <HBox spacing="10">
-                <Button text="Agregar" onAction="#agregarVehiculo"/>
-                <Button text="Eliminar" onAction="#eliminarVehiculo"/>
-                <Button text="Actualizar" onAction="#actualizarVehiculo"/>
-            </HBox>
-
-            <!-- Tabla -->
-            <TableView fx:id="tablaVehiculos" prefHeight="250">
-                <columns>
-                    <TableColumn text="Placa" fx:id="colPlaca" prefWidth="150"/>
-                    <TableColumn text="Tipo" fx:id="colTipo" prefWidth="150"/>
-                </columns>
-            </TableView>
-
+        <VBox spacing="20" style="-fx-padding: 20px;">
+            
+            <!-- FORMULARIO -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20px; -fx-background-radius: 8px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                <Label text="Datos del Vehículo" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                
+                <GridPane hgap="15" vgap="12">
+                    <!-- Fila 1: Placa y Tipo -->
+                    <Label text="Placa:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtPlaca" 
+                               promptText="Ej: ABC123" 
+                               GridPane.columnIndex="1" GridPane.rowIndex="0"
+                               prefWidth="200"/>
+                    
+                    <Label text="Tipo:" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <GridPane.margin>
+                            <Insets left="15"/>
+                        </GridPane.margin>
+                    </Label>
+                    <ComboBox fx:id="cmbTipo" 
+                              GridPane.columnIndex="3" GridPane.rowIndex="0"
+                              prefWidth="150"/>
+                    
+                    <!-- Fila 2: Marca y Modelo -->
+                    <Label text="Marca:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtMarca" 
+                               promptText="Ej: Toyota" 
+                               GridPane.columnIndex="1" GridPane.rowIndex="1"
+                               prefWidth="200"/>
+                    
+                    <Label text="Modelo:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <GridPane.margin>
+                            <Insets left="15"/>
+                        </GridPane.margin>
+                    </Label>
+                    <TextField fx:id="txtModelo" 
+                               promptText="Ej: Corolla 2020" 
+                               GridPane.columnIndex="3" GridPane.rowIndex="1"
+                               prefWidth="200"/>
+                </GridPane>
+                
+                <!-- BOTONES -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="➕ Agregar" 
+                            onAction="#agregarVehiculo"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-cursor: hand;"/>
+                    
+                    <Button text="✏️ Actualizar" 
+                            onAction="#actualizarVehiculo"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-cursor: hand;"/>
+                    
+                    <Button text="🗑️ Eliminar" 
+                            onAction="#eliminarVehiculo"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+            
+            <!-- TABLA DE VEHÍCULOS -->
+            <VBox VBox.vgrow="ALWAYS" spacing="10">
+                <Label text="Lista de Vehículos Registrados" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                
+                <TableView fx:id="tablaVehiculos" 
+                          VBox.vgrow="ALWAYS"
+                          style="-fx-background-color: white; -fx-background-radius: 8px;">
+                    <columns>
+                        <TableColumn fx:id="colPlaca" text="Placa" prefWidth="150"/>
+                        <TableColumn fx:id="colTipo" text="Tipo" prefWidth="120"/>
+                        <TableColumn fx:id="colMarca" text="Marca" prefWidth="200"/>
+                        <TableColumn fx:id="colModelo" text="Modelo" prefWidth="250"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="No hay vehículos registrados" style="-fx-text-fill: gray;"/>
+                    </placeholder>
+                </TableView>
+            </VBox>
         </VBox>
     </center>
-
 </BorderPane>

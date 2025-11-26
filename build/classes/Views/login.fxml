@@ -1,34 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Presentacion.LoginController"
-            prefWidth="400" prefHeight="280">
-
-    <VBox spacing="15" alignment="CENTER" AnchorPane.leftAnchor="0"
-          AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
-          AnchorPane.bottomAnchor="0">
-
-        <Label text="LOGIN - PARKING JJ" style="-fx-font-size: 20px;"/>
-
-        <HBox spacing="10" alignment="CENTER">
-            <Label text="Usuario:" prefWidth="80"/>
-            <TextField fx:id="txtUsuario" promptText="Ingrese su usuario"/>
-        </HBox>
-
-        <HBox spacing="10" alignment="CENTER">
-            <Label text="Contraseña:" prefWidth="80"/>
-            <PasswordField fx:id="txtPassword" promptText="Ingrese su contraseña"/>
-        </HBox>
-
-        <Button text="Ingresar"
-                prefWidth="120"
-                onAction="#iniciarSesion"/>
-
+            fx:controller="Controller.LoginController"
+            prefWidth="500" prefHeight="400"
+            style="-fx-background-color: #0d1117;">
+    
+    <!-- Panel central con fondo oscuro y sombra -->
+    <VBox spacing="25" alignment="CENTER" 
+          AnchorPane.leftAnchor="50"
+          AnchorPane.rightAnchor="50" 
+          AnchorPane.topAnchor="50"
+          AnchorPane.bottomAnchor="50"
+          style="-fx-background-color: #161b22; 
+                 -fx-background-radius: 15px; 
+                 -fx-padding: 40px; 
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0, 0, 5);">
+        
+        <!-- TÍTULO PRINCIPAL -->
+        <Label text="🚗 PARKING JJ" 
+               style="-fx-font-size: 28px; 
+                      -fx-font-weight: bold; 
+                      -fx-text-fill: #58a6ff;"/>
+        
+        <!-- SUBTÍTULO -->
+        <Label text="Inicia Sesión" 
+               style="-fx-font-size: 16px; 
+                      -fx-text-fill: #8b949e; 
+                      -fx-padding: 0 0 10 0;"/>
+        
+        <!-- CAMPO USUARIO -->
+        <VBox spacing="8" prefWidth="320">
+            <Label text="Usuario:" 
+                   style="-fx-text-fill: #c9d1d9; 
+                          -fx-font-size: 14px;"/>
+            <TextField fx:id="txtUsuario" 
+                       promptText="Ingrese su usuario"
+                       prefWidth="320"
+                       prefHeight="40"
+                       style="-fx-background-color: #0d1117; 
+                              -fx-text-fill: #c9d1d9; 
+                              -fx-prompt-text-fill: #6e7681;
+                              -fx-border-color: #30363d; 
+                              -fx-border-width: 2px;
+                              -fx-border-radius: 8px; 
+                              -fx-background-radius: 8px;
+                              -fx-padding: 10px;
+                              -fx-font-size: 14px;"/>
+        </VBox>
+        
+        <!-- CAMPO CONTRASEÑA -->
+        <VBox spacing="8" prefWidth="320">
+            <Label text="Contraseña:" 
+                   style="-fx-text-fill: #c9d1d9; 
+                          -fx-font-size: 14px;"/>
+            <PasswordField fx:id="txtPassword" 
+                           promptText="Ingrese su contraseña"
+                           prefWidth="320"
+                           prefHeight="40"
+                           style="-fx-background-color: #0d1117; 
+                                  -fx-text-fill: #c9d1d9; 
+                                  -fx-prompt-text-fill: #6e7681;
+                                  -fx-border-color: #30363d; 
+                                  -fx-border-width: 2px;
+                                  -fx-border-radius: 8px; 
+                                  -fx-background-radius: 8px;
+                                  -fx-padding: 10px;
+                                  -fx-font-size: 14px;"/>
+        </VBox>
+        
+        <!-- BOTÓN INGRESAR -->
+        <Button text="INGRESAR"
+                prefWidth="220"
+                prefHeight="50"
+                onAction="#iniciarSesion"
+                style="-fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+                       -fx-text-fill: white;
+                       -fx-font-size: 16px;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 10px;
+                       -fx-border-color: #229954;
+                       -fx-border-width: 2px;
+                       -fx-border-radius: 10px;
+                       -fx-cursor: hand;
+                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 3);">
+            <cursor>
+                <javafx.scene.Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        
     </VBox>
 </AnchorPane>
-

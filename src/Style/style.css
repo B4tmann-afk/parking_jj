@@ -1,73 +1,252 @@
 /* ================================
-        ESTILOS GENERALES
+   ESTILOS GENERALES JAVAFX
 =================================== */
 
-body {
-    margin: 0;
-    background: #0d1117;
-    font-family: Arial, sans-serif;
+/* Fondo principal oscuro */
+.root {
+    -fx-background-color: #0d1117;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Contenedor principal */
-.contenedor-parking {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+/* Paneles y contenedores */
+.anchor-pane, .border-pane, .vbox, .hbox {
+    -fx-background-color: #0d1117;
 }
 
-/* Estilo general de los botones */
-.btn {
-    position: absolute;   /* Para mover por coordenadas */
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.15s;
+/* ================================
+   LABELS Y TÍTULOS
+=================================== */
+
+.label {
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 14px;
 }
 
-/* Hover estilizado */
-.btn:hover {
-    transform: scale(1.08);
-    filter: brightness(1.2);
+/* Títulos grandes */
+.titulo {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #58a6ff;
 }
 
-/* ======================================
-        COLORES DE LOS BOTONES
-========================================= */
-
-/* Puedes cambiar colores aquí */
-
-#btn-entrada  { background: #2ecc71; }  /* verde */
-#btn-salida   { background: #e74c3c; }  /* rojo */
-#btn-pagar    { background: #f1c40f; color: #333;}  /* amarillo */
-#btn-config   { background: #3498db; }  /* azul */
-
-
-/* ======================================
-        COORDENADAS DE LOS BOTONES
-========================================= */
-
-/* Edita los valores top / left para moverlos */
-
-#btn-entrada {
-    top: 80px;
-    left: 60px;
+/* Subtítulos */
+.subtitulo {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #8b949e;
 }
 
-#btn-salida {
-    top: 80px;
-    left: 250px;
+/* ================================
+   CAMPOS DE TEXTO
+=================================== */
+
+.text-field, .password-field {
+    -fx-background-color: #161b22;
+    -fx-text-fill: #c9d1d9;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #6e7681;
 }
 
-#btn-pagar {
-    top: 200px;
-    left: 60px;
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #58a6ff;
+    -fx-border-width: 2px;
 }
 
-#btn-config {
-    top: 200px;
-    left: 250px;
+/* ================================
+   BOTONES BASE
+=================================== */
+
+.button {
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
 }
 
+.button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0, 0, 3);
+}
+
+.button:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* ================================
+   BOTONES POR COLOR/FUNCIÓN
+=================================== */
+
+/* Botón VERDE - Ingreso/Registrar */
+.btn-success, .btn-ingreso {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-border-color: #229954;
+    -fx-border-width: 2px;
+}
+
+.btn-success:hover, .btn-ingreso:hover {
+    -fx-background-color: linear-gradient(to bottom, #3be682, #2ecc71);
+}
+
+/* Botón ROJO - Salida/Eliminar */
+.btn-danger, .btn-salida {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c, #c0392b);
+    -fx-border-color: #a93226;
+    -fx-border-width: 2px;
+}
+
+.btn-danger:hover, .btn-salida:hover {
+    -fx-background-color: linear-gradient(to bottom, #f85d4d, #e74c3c);
+}
+
+/* Botón AMARILLO - Pagar/Advertencia */
+.btn-warning, .btn-pagar {
+    -fx-background-color: linear-gradient(to bottom, #f1c40f, #f39c12);
+    -fx-border-color: #d68910;
+    -fx-border-width: 2px;
+    -fx-text-fill: #333333;
+}
+
+.btn-warning:hover, .btn-pagar:hover {
+    -fx-background-color: linear-gradient(to bottom, #f4d03f, #f1c40f);
+}
+
+/* Botón AZUL - Config/Info */
+.btn-primary, .btn-config {
+    -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
+    -fx-border-color: #21618c;
+    -fx-border-width: 2px;
+}
+
+.btn-primary:hover, .btn-config:hover {
+    -fx-background-color: linear-gradient(to bottom, #5dade2, #3498db);
+}
+
+/* Botón MORADO - Tarifas */
+.btn-tarifas {
+    -fx-background-color: linear-gradient(to bottom, #9b59b6, #8e44ad);
+    -fx-border-color: #7d3c98;
+    -fx-border-width: 2px;
+}
+
+.btn-tarifas:hover {
+    -fx-background-color: linear-gradient(to bottom, #af7ac5, #9b59b6);
+}
+
+/* Botón NARANJA - Vehículos */
+.btn-vehiculos {
+    -fx-background-color: linear-gradient(to bottom, #e67e22, #d35400);
+    -fx-border-color: #ba4a00;
+    -fx-border-width: 2px;
+}
+
+.btn-vehiculos:hover {
+    -fx-background-color: linear-gradient(to bottom, #f39c12, #e67e22);
+}
+
+/* Botón TURQUESA - Clientes */
+.btn-clientes {
+    -fx-background-color: linear-gradient(to bottom, #1abc9c, #16a085);
+    -fx-border-color: #138d75;
+    -fx-border-width: 2px;
+}
+
+.btn-clientes:hover {
+    -fx-background-color: linear-gradient(to bottom, #48c9b0, #1abc9c);
+}
+
+/* Botón GRIS - Trabajadores/Secundario */
+.btn-trabajadores, .btn-secondary {
+    -fx-background-color: linear-gradient(to bottom, #95a5a6, #7f8c8d);
+    -fx-border-color: #616a6b;
+    -fx-border-width: 2px;
+}
+
+.btn-trabajadores:hover, .btn-secondary:hover {
+    -fx-background-color: linear-gradient(to bottom, #b2babb, #95a5a6);
+}
+
+/* ================================
+   TABLAS
+=================================== */
+
+.table-view {
+    -fx-background-color: #0d1117;
+    -fx-border-color: #30363d;
+}
+
+.table-view .column-header {
+    -fx-background-color: #161b22;
+    -fx-text-fill: #58a6ff;
+    -fx-font-weight: bold;
+    -fx-border-color: #30363d;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #c9d1d9;
+    -fx-border-color: #21262d;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #161b22;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #0d1117;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: white;
+}
+
+/* ================================
+   BOTONES DESHABILITADOS
+=================================== */
+
+.button:disabled {
+    -fx-opacity: 0.4;
+    -fx-cursor: default;
+}
+
+/* ================================
+   SCROLL BARS
+=================================== */
+
+.scroll-bar {
+    -fx-background-color: #0d1117;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #30363d;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #484f58;
+}
+
+/* ================================
+   ALERTAS PERSONALIZADAS
+=================================== */
+
+.alert {
+    -fx-background-color: #161b22;
+}
+
+.alert .header-panel {
+    -fx-background-color: #21262d;
+}
+
+.alert .content {
+    -fx-background-color: #0d1117;
+}
